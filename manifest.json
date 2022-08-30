@@ -1,0 +1,33 @@
+{
+    "name": "CUAHSISubsetterInput Data Connector",
+    "container": "cuahsisubsetterinput-connector",
+    "pre_processing_stage": "python3 create_connector_yml.py",
+    "execution_stage": "./main.sh",
+    "post_processing_stage": "./transfer_shared_outputs.sh",
+    "slurm_input_rules": {
+   
+           "time": {
+                "max": 2,
+                "min": 1,
+                "default_value": 1,
+                "step": 1,
+                "unit": "Hours"   
+            },
+            "memory_per_cpu": {
+                "max": 1000,
+                "min": 200,
+                "default_value": 400,
+                "step": 100,
+                "unit": "MB"
+            }
+    },
+    "param_rules": {
+        "huc12_id": {
+            "type": "string_input",
+            "require": true,
+            "default_value": "n/a"
+        }
+    },
+    "supported_hpc": ["anvil_community"],
+    "default_hpc": "anvil_community"
+}
