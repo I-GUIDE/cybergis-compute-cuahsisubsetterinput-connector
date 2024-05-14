@@ -12,7 +12,7 @@
                 "default_value": 1,
                 "step": 1,
                 "unit": "Hours"   
-            },
+            }
     },
     "param_rules": {
         "huc12_id": {
